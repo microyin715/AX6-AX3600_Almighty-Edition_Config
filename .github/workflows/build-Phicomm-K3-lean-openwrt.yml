@@ -11,26 +11,26 @@ name: 编译Phicomm-K3 Lean's的OpenWrt固件
 
 on: 
   # release触发
-#  release:
-#    types: [published]
+  release:
+    types: [published]
     
   # 编辑文件触发
-#  push:
-#    branches: 
-#      - master
+  push:
+    branches: 
+      - master
     # 路径
-#    paths:
-#      - 'config/Phicomm-K3-openwrt.config'
-#      - 'scripts/lean-plugin-openwrt.sh'
-#      - '.github/workflows/build-Phicomm-K3-lean-openwrt.yml'
+    paths:
+      - 'config/Phicomm-K3-openwrt.config'
+      - 'scripts/lean-plugin-openwrt.sh'
+      - '.github/workflows/build-Phicomm-K3-lean-openwrt.yml'
   
   # 每周三的晚上3点钟编译
   schedule:
      - cron: '0 3 * * 3'
   
   # 点击★开始触发编译固件
-  #watch:  
-  #   types: [started]
+  watch:  
+     types: [started]
   
 # 环境变量
 env:
