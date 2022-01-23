@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: AX3600 Almighty-5.15 Edition
+name: AX3600 5.15 Microyin
 
 on:
   repository_dispatch:
