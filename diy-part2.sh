@@ -26,8 +26,8 @@ git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-a
 git clone https://github.com/sirpdboy/luci-app-netdata.git package/luci-app-netdata
 
 #添加额外非必须软件包
-git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
-git clone https://github.com/vernesong/OpenClash.git package/OpenClash
+# git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
+# git clone https://github.com/vernesong/OpenClash.git package/OpenClash
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 git clone https://github.com/zzsj0928/luci-app-pushbot.git package/luci-app-pushbot
 git clone https://github.com/riverscn/openwrt-iptvhelper.git package/openwrt-iptvhelper
