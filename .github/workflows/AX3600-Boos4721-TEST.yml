@@ -14,7 +14,7 @@
 #limitations under the License.
 #
 
-name: K3 firmware compile lede
+name: AX3600-Boos4721-TEST
 
 on:
   workflow_dispatch:
