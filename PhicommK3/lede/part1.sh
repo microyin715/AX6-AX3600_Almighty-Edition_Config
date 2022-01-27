@@ -16,33 +16,50 @@
 #limitations under the License.
 #
 
-#修改NTP设置
-#sed -i "s/'0.openwrt.pool.ntp.org'/'ntp1.aliyun.com'/g" package/base-files/files/bin/config_generate
-#sed -i "s/'1.openwrt.pool.ntp.org'/'ntp2.aliyun.com'/g" package/base-files/files/bin/config_generate
-#sed -i "s/'2.openwrt.pool.ntp.org'/'ntp3.aliyun.com'/g" package/base-files/files/bin/config_generate
-#sed -i "s/'3.openwrt.pool.ntp.org'/'ntp4.aliyun.com'/g" package/base-files/files/bin/config_generate
-#cat package/base-files/files/bin/config_generate |grep system.ntp.server=
-#echo 'Alert NTP Settings OK!====================='
+# echo '添加SSRPLUS软件源'
+# sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
+# cat feeds.conf.default |grep helloworld
+# echo '=========Add feed source OK!========='
 
-echo '修改主机名'
-sed -i "s/hostname='OpenWrt'/hostname='Phicomm-K3'/g" package/base-files/files/bin/config_generate
-cat package/base-files/files/bin/config_generate |grep hostname=
-echo '=========Alert hostname OK!========='
+echo '添加Passwall软件源'
+sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
+echo '=========Add feed source OK!========='
 
-echo '移除主页跑分信息显示'
-sed -i 's/ <%=luci.sys.exec("cat \/etc\/bench.log") or ""%>//g' package/lean/autocore/files/arm/index.htm
-echo '=========Remove benchmark display in index OK!========='
+echo '添加jerrykuku的argon-mod主题'
+rm -rf package/lean/luci-theme-argon  
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
+echo '=========Add argon-mod OK!========='
 
-echo '移除主页日志打印'
-sed -i '/console.log(mainNodeName);/d' package/lean/luci-theme-argon/htdocs/luci-static/argon/js/script.js
-echo '=========Remove log print in index OK!========='
+echo '添加lwz322的K3屏幕插件'
+rm -rf package/lean/luci-app-k3screenctrl
+git clone https://github.com/yangxu52/luci-app-k3screenctrl.git package/lean/luci-app-k3screenctrl
+echo '=========Add k3screen plug OK!========='
 
-echo '修改upnp绑定文件位置'
-sed -i 's/\/var\/upnp.leases/\/tmp\/upnp.leases/g' feeds/packages/net/miniupnpd/files/upnpd.config
-cat feeds/packages/net/miniupnpd/files/upnpd.config |grep upnp_lease_file
-echo '=========Alert upnp binding file directory!========='
+echo '替换lwz322的K3屏幕驱动插件'
+rm -rf package/lean/k3screenctrl
+git clone https://github.com/yangxu52/k3screenctrl_build.git package/lean/k3screenctrl/
+echo '=========Replace k3screen drive plug OK!========='
 
-#添加主页的CPU温度显示
-#sed -i "/<tr><td width=\"33%\"><%:Load Average%>/a \ \t\t<tr><td width=\"33%\"><%:CPU Temperature%></td><td><%=luci.sys.exec(\"sed 's/../&./g' /sys/class/thermal/thermal_zone0/temp|cut -c1-4\")%></td></tr>" feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
-#cat feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm |grep Temperature
-#echo "Add CPU Temperature in Admin Index OK====================="
+# echo '修改5.4分支为5.4.150'
+# sed -i '/^LINUX_VERSION-5.4/c LINUX_VERSION-5.4 = .150' include/kernel-version.mk
+# sed -i '/^LINUX_KERNEL_HASH-5.4/c LINUX_KERNEL_HASH-5.4.150 = f424a9bbb05007f04c17f96a2e4f041a8001554a9060d2c291606e8a97c62aa2' include/kernel-version.mk
+# wget -nv https://github.com/yangxu52/OP-old-kernel-target/raw/main/target-5.4.150.tar.gz
+# rm -rf ./target/
+# tar -zxf ./target-5.4.150.tar.gz
+# rm -rf ./target-5.4.150.tar.gz
+# echo '=========Alert kernel to 5.4.150 OK!========='
+
+echo '移除bcm53xx中的其他机型'
+sed -i '421,453d' target/linux/bcm53xx/image/Makefile
+sed -i '140,412d' target/linux/bcm53xx/image/Makefile
+sed -i 's/$(USB3_PACKAGES) k3screenctrl/luci-app-k3screenctrl/g' target/linux/bcm53xx/image/Makefile
+# sed -n '140,146p' target/linux/bcm53xx/image/Makefile
+echo '=========Remove other devices of bcm53xx OK!========='
+
+echo '替换K3的无线驱动为asus-dhd24'
+wget -nv https://github.com/Hill-98/phicommk3-firmware/raw/master/brcmfmac4366c-pcie.bin.asus-dhd24 -O package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
+#echo '替换K3的无线驱动为ac86u'
+#wget -nv https://github.com/Hill-98/phicommk3-firmware/raw/master/brcmfmac4366c-pcie.bin.ac88u -O package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
+#echo '替换K3的无线驱动为69027'
+#wget -nv https://github.com/Hill-98/phicommk3-firmware/raw/master/brcmfmac4366c-pcie.bin.69027 -O package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
+echo '=========Replace k3 wireless firmware OK!========='
