@@ -24,8 +24,8 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: AX3600-Boos4721-TEST.config
-  MOD_P1_SH: diy-part1.sh
-  MOD_P2_SH: diy-part2.sh
+  MOD_P1_SH: AX3600/diy-part1.sh
+  MOD_P2_SH: AX3600/diy-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
