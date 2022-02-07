@@ -22,9 +22,9 @@ Projects
 Wiki
 Security
 Insights
-Openwrt_Beta/.github/workflows/AX3600_DCJ.yml
-@jingleijack
-jingleijack Update AX3600_DCJ.yml
+Router-firmware/.github/workflows/AX3600_ZDY.yml
+@microyin
+Update AX3600_ZDY.yml
 Latest commit 57fe76e on 12 Sep 2021
  History
  1 contributor
@@ -40,7 +40,7 @@ Latest commit 57fe76e on 12 Sep 2021
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: AX3600_DCJ
+name: AX3600_ZDY
 
 on:
   repository_dispatch:
