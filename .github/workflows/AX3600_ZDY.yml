@@ -1,4 +1,3 @@
-  
 #
 # Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
 #
@@ -9,10 +8,12 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: AX3600_ZDY
+name: AX3600 Microyin Edition
 
 on:
   repository_dispatch:
+  schedule:
+   - cron: 00 3 * * 5
   workflow_dispatch:
     inputs:
       ssh:
