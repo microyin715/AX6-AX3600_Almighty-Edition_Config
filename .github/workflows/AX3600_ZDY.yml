@@ -1,35 +1,4 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@microyin715 
-jingleijack
-/
-Openwrt_Beta
-Public
-generated from P3TERX/Actions-OpenWrt
-Code
-Issues
-12
-Pull requests
-1
-Discussions
-Actions
-Projects
-Wiki
-Security
-Insights
-Router-firmware/.github/workflows/AX3600_ZDY.yml
-@microyin
-Update AX3600_ZDY.yml
-Latest commit 57fe76e on 12 Sep 2021
- History
- 1 contributor
-190 lines (166 sloc)  6.2 KB
-   
+  
 #
 # Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
 #
