@@ -20,7 +20,7 @@ on:
   workflow_dispatch:
 
 env:
-  REPO_URL: https://github.com/Boos4721/openwrt
+  REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: AX3600-Boos4721-TEST.config
