@@ -31,7 +31,6 @@ env:
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   
-    - name: 开始编译
 jobs:  
   build:
     runs-on: ubuntu-20.04
