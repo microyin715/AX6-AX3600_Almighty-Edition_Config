@@ -30,9 +30,9 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-
-jobs:
+  
     - name: 开始编译
+jobs:  
   build:
     runs-on: ubuntu-20.04
 
