@@ -24,7 +24,6 @@
 echo '2.添加SSRPLUS软件源'
 rm -rf package/helloworld
 git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
-echo '=========添加SSRPLUS软件源OK!========='
 
 # echo '添加Passwall软件源'
 # sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
