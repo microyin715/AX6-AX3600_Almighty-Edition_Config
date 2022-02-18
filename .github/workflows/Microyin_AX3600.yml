@@ -35,12 +35,12 @@ env:
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
 
-jobs:
+jobs:  
   build:
     runs-on: ubuntu-20.04
 
     steps:
-    - name: Checkout
+    - name: 检查
       uses: actions/checkout@main
 
     - name: 初始化编译环境
