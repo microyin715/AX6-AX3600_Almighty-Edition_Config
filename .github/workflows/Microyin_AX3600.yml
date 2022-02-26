@@ -12,8 +12,6 @@ name: AX3600 Microyin Edition
 
 on:
   repository_dispatch:
-  schedule:
-   - cron: 00 3 * * 5
   workflow_dispatch:
     inputs:
       ssh:
