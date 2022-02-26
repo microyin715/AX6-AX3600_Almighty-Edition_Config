@@ -9,7 +9,7 @@
 #============================================================
 
 # Modify default IP
-sed -i 's/192.168.1.1/10.1.1.254/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.158.1/g' package/base-files/files/bin/config_generate
 
 # 去除默认主题
 sed -i 's/+luci-theme-bootstrap/ /g' feeds/luci/collections/luci/Makefile
