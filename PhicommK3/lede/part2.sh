@@ -56,7 +56,6 @@ echo "Add CPU Temperature in Admin Index OK====================="
 git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 git clone https://github.com/openwrt-develop/luci-theme-atmaterial.git package/luci-theme-atmaterial
-git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/sirpdboy/luci-app-netdata.git package/luci-app-netdata
 
 #添加额外非必须软件包
