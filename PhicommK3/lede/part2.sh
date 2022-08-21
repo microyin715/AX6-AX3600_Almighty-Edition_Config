@@ -69,10 +69,10 @@ git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 git clone https://github.com/sirpdboy/netspeedtest package/netspeedtest
 
 #添加mosdns
-rm -rf ./feeds/packages/net/mosdns
-rm -rf ./feeds/packages/net/geodata
-git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/geodata
+#rm -rf ./feeds/packages/net/mosdns
+#rm -rf ./feeds/packages/net/geodata
+#git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
+#git clone https://github.com/sbwml/v2ray-geodata package/geodata
 
 #添加smartdns
 git clone https://github.com/kiddin9/luci-app-dnsfilter.git package/luci-app-dnsfilter
