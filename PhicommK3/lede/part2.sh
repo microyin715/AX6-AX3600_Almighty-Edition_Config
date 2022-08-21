@@ -68,6 +68,9 @@ git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-a
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 git clone https://github.com/sirpdboy/netspeedtest package/netspeedtest
 
+#添加NAT软件包
+git clone -b master --single-branch https://github.com/LGA1150/openwrt-fullconenat package/fullconenat
+
 #添加smartdns
 git clone https://github.com/kiddin9/luci-app-dnsfilter.git package/luci-app-dnsfilter
 git clone https://github.com/pymumu/openwrt-smartdns package/smartdns
