@@ -70,6 +70,7 @@ git clone https://github.com/sirpdboy/netspeedtest package/netspeedtest
 
 #添加mosdns
 rm -rf ./feeds/packages/net/mosdns
+rm -rf ./feeds/packages/net/geodata
 git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/geodata
 
