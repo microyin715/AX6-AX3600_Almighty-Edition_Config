@@ -138,14 +138,23 @@ jobs:
       with:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
-
+        
     - name: 生成Release标识
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "::set-output name=release_tag::K3-lede-$(date +"%Y.%m.%d-%H%M")"
+        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
         touch release.txt
-        echo "::set-output name=status::success"
+        [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
+        [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
+        echo "Phicomm-K3-LEDE Openwrt 固件配置：" >> release.txt
+        echo "IP:192.168.8.1" >> release.txt
+        echo "WEB登陆账户：root" >> release.txt
+        echo "密码：password" >> release.txt
+        echo "固件源码：https://github.com/coolsnowwolf/lede" >> release.txt
+        echo "固件内核版本：5.4" >> release.txt
+        echo "${{ env.useVersionInfo }}" >> release.txt
+        echo "::set-output name=status::success"        
 
     - name: 发布到Release
       uses: softprops/action-gh-release@v1
