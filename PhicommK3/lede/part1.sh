@@ -17,7 +17,7 @@
 #
 
 echo '添加SSRPLUS软件源'
-echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
+echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
 echo '=========Add feed source OK!========='
 
 # echo '添加Passwall软件源'
