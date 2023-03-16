@@ -21,12 +21,13 @@ sed -i "/helloworld/d" "feeds.conf.default"
 echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
 echo '=========Add feed source OK!========='
 
-# echo '添加Passwall软件源'
-# sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
-# echo '=========Add feed source OK!========='
+echo '添加Passwall软件源'
+sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
+echo '=========Add feed source OK!========='
 
 echo '添加openwrt-packages软件源'
 sed -i '1i src-git haibo https://github.com/haiibo/openwrt-packages' feeds.conf.default
+echo '=========Add openwrt-packages OK!========='
 
 echo '添加jerrykuku的argon-mod主题'
 rm -rf package/lean/luci-theme-argon  
