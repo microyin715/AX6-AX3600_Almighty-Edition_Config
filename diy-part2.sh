@@ -32,7 +32,7 @@ git clone https://github.com/tcsr200722/luci-app-cpufreq.git package/luci-app-cp
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 git clone https://github.com/zzsj0928/luci-app-pushbot.git package/luci-app-pushbot
 git clone https://github.com/riverscn/openwrt-iptvhelper.git package/openwrt-iptvhelper
-git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
+
 
 #添加smartdns
 git clone https://github.com/kiddin9/luci-app-dnsfilter.git package/luci-app-dnsfilter
