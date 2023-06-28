@@ -39,3 +39,55 @@ AX3600 拨号会重启与ipv6有冲突所以默认取消了。
 脚本文件：目前1-2都是编辑添加，修改好的。
 
 此次更新为Actions，自动拉取最新lede源码库，不需要任何修改，手动触发即可编译。
+
+#SFE/NSS(on/off ecm)加速
+
+#IPv6
+
+#ttyd
+
+#AdGuardhome
+
+#酸酸乳plus（全组件）
+
+#openclash小猫咪(与NSS冲突 二选一)
+
+#全能推送
+
+#上网时间控制
+
+#动态DNS
+
+#smartdns
+
+#网络唤醒
+
+#网易云解锁灰色歌曲
+
+#KMS
+
+#JD签到服务
+
+#udpxy组播服务
+
+#UPNP
+
+#MWAN 3 分流助手
+
+#IPSec VPN 服务器
+
+#ZeroTier
+
+#简单mesh
+
+#QoS以及SQM QoS
+
+#多线多拨
+
+#负载均衡
+
+#Turbo ACC 网络加速
+
+#网络带宽监视器
+
+enjoy
