@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: ax3600_cfe_Build OpenWrt
+name: ax3600_sfe_Build OpenWrt
 
 on:
   repository_dispatch:
