@@ -26,6 +26,7 @@ env:
   CONFIG_FILE: AX3600/ax3600_ecm.config
   DIY_P1_SH: AX3600/diy-part1.sh
   DIY_P2_SH: AX3600/diy-part2.sh
+  FREE_UP_DISK: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
