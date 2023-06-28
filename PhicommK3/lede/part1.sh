@@ -22,7 +22,7 @@
 #echo '=========Add feed source OK!========='
 
 echo '添加Passwall软件源'
-sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
+echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 echo '=========Add feed source OK!========='
 
 echo '添加openwrt-packages软件源'
