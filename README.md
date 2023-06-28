@@ -91,3 +91,30 @@ AX3600 拨号会重启与ipv6有冲突所以默认取消了。
 #网络带宽监视器
 
 enjoy
+
+自定义环境变量与功能
+详细信息
+打开 work­flow 文件（.github/workflows/build-openwrt.yml），你会看到有如下一些环境变量，可按照自己的需求对这些变量进行定义。
+
+env:
+  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_BRANCH: master
+  CONFIG_FILE: .config
+  DIY_SH: diy.sh
+  FREE_UP_DISK: false
+  SSH_ACTIONS: false
+  UPLOAD_BIN_DIR: false
+  UPLOAD_FIRMWARE: true
+  TZ: Asia/Shanghai
+TIPS: 修改时需要注意:(冒号)后面有空格。
+环境变量	功能
+REPO_URL	源码仓库地址
+REPO_BRANCH	源码分支
+CONFIG_FILE	.config文件名
+DIY_SH	DIY 脚本文件名
+FREE_UP_DISK	释放磁盘空间。编译磁盘空间不足报错时使用。默认false
+SSH_ACTIONS	SSH 连接 Actions 功能。默认false
+UPLOAD_BIN_DIR	上传 bin 目录。即包含所有 ipk 文件和固件的目录。默认false
+UPLOAD_FIRMWARE	上传固件目录。默认true
+TZ	时区设置
+
