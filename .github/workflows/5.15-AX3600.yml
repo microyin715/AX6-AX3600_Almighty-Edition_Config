@@ -21,9 +21,9 @@ on:
 
 env:
   REPO_URL: https://github.com/robimarko/openwrt
-  REPO_BRANCH: ipq807x-5.15-pr
+  REPO_BRANCH: ipq807x-5.15-pr-nss-drv
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: AX3600/AX3600-5.15.config
+  CONFIG_FILE: AX3600-5.15.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
@@ -163,7 +163,7 @@ jobs:
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
         echo "Xiaomi-AX3600-5.15 Openwrt 固件配置：" >> release.txt
-        echo "IP:192.168.31.1" >> release.txt
+        echo "IP:192.168.10.1" >> release.txt
         echo "WEB登陆账户：root" >> release.txt
         echo "密码：password" >> release.txt
         echo "固件源码：https://github.com/robimarko/openwrt" >> release.txt
