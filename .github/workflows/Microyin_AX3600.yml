@@ -88,7 +88,7 @@ jobs:
       env:
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-
+        
     - name: Download package
       id: package
       run: |
@@ -97,8 +97,8 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
-
-      - name: Compile the firmware
+        
+    - name: Compile the firmware
       id: compile
       run: |
         cd openwrt
@@ -111,25 +111,25 @@ jobs:
 #        [ -s DEVICE_NAME ] && echo "::set-env name=DEVICE_NAME::_$(cat DEVICE_NAME)"
 #        echo "::set-env name=FILE_DATE::_$(date +"%Y%m%d%H%M")"
 
-      - name: Check space usage
+    - name: Check space usage
       if: (!cancelled())
       run: df -hT
 
-      - name: Clean up server space
+    - name: Clean up server space
       if: steps.compile.outputs.status == 'success' && !cancelled()
       run: |
         cd openwrt/
         rm -rf $(ls . | grep -v "^bin$" | xargs) 2>/dev/null
         df -hT ${PWD}
 
-      - name: Upload bin directory
+    - name: Upload bin directory
       uses: actions/upload-artifact@main
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: openwrt/bin
 
-      - name: Organize files
+    - name: Organize files
       id: organize
       if: steps.compile.outputs.status == 'success' && !cancelled()
       run: |
@@ -141,14 +141,14 @@ jobs:
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "status=success" >>$GITHUB_OUTPUT
         
-      - name: Upload firmware directory
+    - name: Upload firmware directory
       uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
-      - name: Create release
+    - name: Create release
       uses: softprops/action-gh-release@v1
       if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
@@ -158,7 +158,7 @@ jobs:
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
     
-      - name: Upload firmware to release
+    - name: Upload firmware to release
       uses: softprops/action-gh-release@v1
       if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
@@ -168,13 +168,13 @@ jobs:
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
 
-      - name: Delete workflow runs
+    - name: Delete workflow runs
       uses: microyin715/delete-workflow-runs@main
       with:
         retain_days: 30
         keep_minimum_runs: 3
 
-      - name: Remove old Releases
+    - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.1.0
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
