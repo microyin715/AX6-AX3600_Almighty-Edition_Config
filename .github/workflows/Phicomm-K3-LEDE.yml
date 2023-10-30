@@ -172,7 +172,7 @@ jobs:
         keep_minimum_runs: 3
 
     - name: 移除旧的Realeases
-      uses: dev-drprasad/delete-older-releases@v0.1.0
+      uses: dev-drprasad/delete-older-releases@v0.2.1
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         keep_latest: 5
