@@ -166,7 +166,7 @@ jobs:
         files: ${{ env.FIRMWARE }}/*
 
     - name: 清理工作空间
-      uses: GitRML/delete-workflow-runs@main
+      uses: GitRML/delete-workflow-runs@v1
       with:
         retain_days: 1
         keep_minimum_runs: 3
