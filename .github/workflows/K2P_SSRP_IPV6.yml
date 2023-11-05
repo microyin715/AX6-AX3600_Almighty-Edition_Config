@@ -22,7 +22,7 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.default
+  FEEDS_CONF: PhicommK2P/feeds.conf.default
   CONFIG_FILE: PhicommK2P/K2P_ipv6.config
   DIY_P1_SH: PhicommK2P/diy-part1.sh
   DIY_P2_SH: PhicommK2P/diy-part2.sh
