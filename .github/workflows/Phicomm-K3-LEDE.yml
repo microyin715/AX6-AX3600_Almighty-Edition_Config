@@ -153,7 +153,7 @@ jobs:
         echo "固件源码：https://github.com/coolsnowwolf/lede" >> release.txt
         echo "固件内核版本：5.4" >> release.txt
         echo "${{ env.useVersionInfo }}" >> release.txt
-        echo "::set-output name=status::success"
+        echo "status=success" >>$GITHUB_OUTPUT
 
     - name: 发布到Release
       uses: softprops/action-gh-release@v1
