@@ -14,7 +14,7 @@
 #limitations under the License.
 #
 
-name: K3 firmware lede
+name: Phicomm K3 firmware lede
 
 on:
   repository_dispatch:
