@@ -14,7 +14,7 @@
 #limitations under the License.
 #
 
-name: DZ K3 firmware lede
+name: K3_DZ_firmware lede
 
 on:
   repository_dispatch:
