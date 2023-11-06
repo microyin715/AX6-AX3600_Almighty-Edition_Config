@@ -166,16 +166,16 @@ jobs:
         files: ${{ env.FIRMWARE }}/*
 
     - name: 清理工作空间
-      uses: GitRML/delete-workflow-runs@v1
+      uses: microyin715/delete-workflow-runs@main
       with:
-        retain_days: 1
+        retain_days: 30
         keep_minimum_runs: 3
 
     - name: 移除旧的Realeases
       uses: dev-drprasad/delete-older-releases@v0.2.1
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        keep_latest: 5
+        keep_latest: 3
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
