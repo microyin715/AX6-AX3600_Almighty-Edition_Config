@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: PhicommK2P_IPV6
+name: Phicomm_K2P_IPV6
 
 on:
   repository_dispatch:
