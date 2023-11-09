@@ -310,21 +310,18 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "::set-output name=release_tag::H3C-NX30Pro-LEDE-$(date +"%Y.%m.%d-%H%M")"
+        echo "release_tag=H3C-NX30Pro-LEDE-$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_ENV
         touch release.txt
-        echo "::set-output name=status::success"
+         echo "status=success" >>$GITHUB_OUTPUT
 
-    - name: 发布OpenWrt固件到Realeases
+    - name: 发布OpenWrt固件到Releases
       uses: softprops/action-gh-release@v1
       if: steps.tag.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        name: ${{ env.VER }} for NX30Pro
-        allowUpdates: true
-        removeArtifacts: true
+        files: ${{ env.FIRMWARE }}/*
+        name: NX30Pro for ${{ env.VER }}
         tag_name: ${{ steps.tag.outputs.status }}
-        commit: main
         token: ${{ secrets.GITHUB_TOKEN }}
-        artifacts: ${{ env.FIRMWARE }}/*
         body: |
           - 版本号：${{ env.VER }}
           - 默认IP：192.168.10.1
@@ -332,12 +329,12 @@ jobs:
           - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           - 下载后请仔细校验MD5，如不正确请重新下载
           ${{ env.useVersionInfo }}
-          
+      
           `md5sum`
           > ${{ env.MD5 }}
 
     - name: 删除工作流
-      uses: GitRML/delete-workflow-runs@main
+      uses: Mattraks/delete-workflow-runs@v2
       with:
         retain_days: 1
         keep_minimum_runs: 3
