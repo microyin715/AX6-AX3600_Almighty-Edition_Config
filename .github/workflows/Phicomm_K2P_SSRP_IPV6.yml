@@ -115,8 +115,8 @@ jobs:
       uses: actions/upload-artifact@main
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
-        name: ImmortalWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-        path: ImmortalWrt/bin
+        name: Openwrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        path: Openwrt/bin
 
     - name: Organize files
       id: organize
@@ -131,7 +131,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: ImmortalWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        name: LEDE-OPENWRT_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
     - name: Generate release tag
@@ -140,7 +140,7 @@ jobs:
       run: |
         echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
         touch release.txt
-        echo "## hanwckf's ImmortalWrt mt7621 Release $(date +"%Y.%m.%d-%H:%M")" >> release.txt
+        echo "## LEDE-OPENWRT mt7621 Release $(date +"%Y.%m.%d-%H:%M")" >> release.txt
         echo "- squashfs-sysupgrade.bin" >> release.txt
         echo "  phicomm-K2P-md5: $(md5sum ${{ env.FIRMWARE }}/*K2P*sysupgrade.bin | cut -d" " -f1)" >> release.txt
         echo "  phicomm-K2P-sha256: $(grep ".*K2P.*sysupgrade.bin" ${{ env.FIRMWARE }}/sha256sums | grep -oE "\w{64}")" >> release.txt
