@@ -109,8 +109,8 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
         
-    - name: Revert some drop sh*t
-      run: cp -rf $GITHUB_WORKSPACE/IPQ8071A/revert/* openwrt/      
+    #- name: Revert some drop sh*t
+    #  run: cp -rf $GITHUB_WORKSPACE/IPQ8071A/revert/* openwrt/      
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
